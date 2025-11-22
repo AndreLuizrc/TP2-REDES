@@ -5,13 +5,14 @@ import java.net.*;
 
 class Servidor
 {
-   private static int portaServidor = 9871;
+   public static int portaServidorUdp = 9871;
+   public static int portaServidorTCP = 6790;
    private static byte[] receiveData = new byte[1024];
    private static byte[] sendData = new byte[1024];
 
    public static void udp(String args[]) throws Exception
    {
-      DatagramSocket serverSocket = new DatagramSocket(portaServidor);
+      DatagramSocket serverSocket = new DatagramSocket(portaServidorUdp);
 
       while(true) 
       {
@@ -35,7 +36,7 @@ class Servidor
    public static void tcp(String argv[]) throws Exception
    {
       //Efetua as primitivas socket e bind, respectivamente
-      ServerSocket socket = new ServerSocket(portaServidor);
+      ServerSocket socket = new ServerSocket(portaServidorTCP);
 
       while(true)
       {
